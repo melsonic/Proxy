@@ -40,7 +40,7 @@ export https_proxy="http://172.16.199.41:8080/"
 ### configure the proxy settings for snap
 ```
 sudo snap set system proxy.http="http://172.16.199.41:8080"
-sudo snap set system proxy.http="http://172.16.199.41:8080"
+sudo snap set system proxy.https="http://172.16.199.41:8080"
 ```
 
 <br><br>
