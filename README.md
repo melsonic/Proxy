@@ -37,6 +37,13 @@ export https_proxy=http://172.16.199.41:8080/
 export http_proxy="http://172.16.199.41:8080/"
 export https_proxy="http://172.16.199.41:8080/"
 ```
+
+### For yarn
+```
+yarn config set proxy http://172.16.199.41:8080 
+yarn config set https-proxy http://172.16.199.41:8080 
+```
+
 ### configure the proxy settings for snap
 ```
 sudo snap set system proxy.http="http://172.16.199.41:8080"
