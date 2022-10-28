@@ -44,6 +44,12 @@ yarn config set proxy http://172.16.199.41:8080
 yarn config set https-proxy http://172.16.199.41:8080 
 ```
 
+### delete yarn proxy
+```
+yarn config delete proxy
+yarn config delete https-proxy
+```
+
 ### configure the proxy settings for snap
 ```
 sudo snap set system proxy.http="http://172.16.199.41:8080"
