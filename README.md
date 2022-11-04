@@ -60,14 +60,16 @@ sudo snap set system proxy.https="http://172.16.2.11:3128/"
 ```
 sudo mkdir -p /etc/systemd/system/docker.service.d
 sudo vi /etc/systemd/system/docker.service.d/http-proxy.conf
+
 sudo systemctl daemon-reload
 sudo  systemctl restart docker
 docker pull docurdt/heal
-# inside the /etc/systemd/system/docker.service.d/http-proxy.conf file
+
+cat /etc/systemd/system/docker.service.d/http-proxy.conf 
+
 [Service]
 Environment="HTTP_PROXY=http://172.16.2.11:3128/"
 Environment="HTTPS_PROXY="http://172.16.2.11:3128/"
-
 ```
 
 <br><br>
