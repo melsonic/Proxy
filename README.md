@@ -7,41 +7,41 @@ Open the network settings and set the your system wide network proxy.
 Network -> Network proxy -> Configure -> Apply system wide.
 Keep the Socks Host Blank if you want to acess web.whatsapp.com.
 
-SERVER: 172.16.199.41
-PORT: 8080
+SERVER: 172.16.2.11
+PORT: 3128
 
 #### Add the following lines to _~/.bashrc_
 
 ```
-export http_proxy=http://172.16.199.41:8080/ 
-export https_proxy=http://172.16.199.41:8080/ 
+export http_proxy=http://172.16.2.11:3128/ 
+export https_proxy=http://172.16.2.11:3128/
 ```
 
 #### Add the following lines to _/etc/apt/apt.conf_
 
 ```
-Acquire::http::Proxy "http://172.16.199.41:8080"; 
-Acquire::https::Proxy "http://172.16.199.41:8080"; 
+Acquire::http::Proxy "http://172.16.2.11:3128/"; 
+Acquire::https::Proxy "http://172.16.2.11:3128/"; 
 ```
 
 #### Add the following lines to _/etc/bash.bashrc_
 
 ```
-export http_proxy=http://172.16.199.41:8080/ 
-export https_proxy=http://172.16.199.41:8080/ 
+export http_proxy=http://172.16.2.11:3128/
+export https_proxy=http://172.16.2.11:3128/
 ```
 
 #### Add the following lines to _/etc/environment_
 
 ```
-export http_proxy="http://172.16.199.41:8080/"
-export https_proxy="http://172.16.199.41:8080/"
+export http_proxy="http://172.16.2.11:3128/"
+export https_proxy="http://172.16.2.11:3128/"
 ```
 
 ### For yarn
 ```
-yarn config set proxy http://172.16.199.41:8080 
-yarn config set https-proxy http://172.16.199.41:8080 
+yarn config set proxy http://172.16.2.11:3128/
+yarn config set https-proxy http://172.16.2.11:3128/
 ```
 
 ### delete yarn proxy
@@ -52,8 +52,22 @@ yarn config delete https-proxy
 
 ### configure the proxy settings for snap
 ```
-sudo snap set system proxy.http="http://172.16.199.41:8080"
-sudo snap set system proxy.https="http://172.16.199.41:8080"
+sudo snap set system proxy.http="http://172.16.2.11:3128/"
+sudo snap set system proxy.https="http://172.16.2.11:3128/"
+```
+
+### configurations for docker
+```
+sudo mkdir -p /etc/systemd/system/docker.service.d
+sudo vi /etc/systemd/system/docker.service.d/http-proxy.conf
+sudo systemctl daemon-reload
+sudo  systemctl restart docker
+docker pull docurdt/heal
+# inside the /etc/systemd/system/docker.service.d/http-proxy.conf file
+[Service]
+Environment="HTTP_PROXY=http://172.16.2.11:3128/"
+Environment="HTTPS_PROXY="http://172.16.2.11:3128/"
+
 ```
 
 <br><br>
