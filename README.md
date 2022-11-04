@@ -72,6 +72,14 @@ sudo snap set system proxy.https="http://172.16.2.11:3128/"
 
 ```
 
+```
+[Service]
+Environment="HTTP_PROXY=http://172.16.2.11:3128"
+Environment="HTTPS_PROXY=http://10.0.1.60:3128"
+Environment="NO_PROXY=localhost,127.0.0.1"
+```
+
+
 <br><br>
 ## For Windows:
 #### Configure using GUI
