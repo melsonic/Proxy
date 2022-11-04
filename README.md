@@ -58,18 +58,18 @@ sudo snap set system proxy.https="http://172.16.2.11:3128/"
 
 ### configurations for docker
 ```
-sudo mkdir -p /etc/systemd/system/docker.service.d
-sudo vi /etc/systemd/system/docker.service.d/http-proxy.conf
+{
+ "proxies":
+ {
+   "default":
+   {
+     "httpProxy": "http://192.16.2.11:3128",
+     "httpsProxy": "http://192.16.2.11:3128",
+     "noProxy": "*.test.example.com,.example2.com,127.0.0.0/8"
+   }
+ }
+}
 
-sudo systemctl daemon-reload
-sudo  systemctl restart docker
-docker pull docurdt/heal
-
-cat /etc/systemd/system/docker.service.d/http-proxy.conf 
-
-[Service]
-Environment="HTTP_PROXY=http://172.16.2.11:3128/"
-Environment="HTTPS_PROXY="http://172.16.2.11:3128/"
 ```
 
 <br><br>
