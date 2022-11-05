@@ -79,6 +79,13 @@ Environment="HTTPS_PROXY=http://172.16.2.11:3128"
 Environment="NO_PROXY=localhost,127.0.0.1"
 ```
 
+```
+docker run \
+    --env http_proxy="http://172.16.2.11:3128" \
+    --env https_proxy="http://172.16.2.11:3128" \
+    nginx sh -c "curl google.com"
+```
+
 
 <br><br>
 ## For Windows:
