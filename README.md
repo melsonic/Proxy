@@ -57,6 +57,12 @@ yarn config delete proxy
 yarn config delete https-proxy
 ```
 
+### For npm
+```
+npm config set proxy http://172.16.2.11:3128/
+npm config set https-proxy http://172.16.2.11:3128/
+```
+
 ### configure the proxy settings for snap
 ```
 sudo snap set system proxy.http="http://172.16.2.11:3128/"
