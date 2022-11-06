@@ -38,6 +38,13 @@ export http_proxy="http://172.16.2.11:3128/"
 export https_proxy="http://172.16.2.11:3128/"
 ```
 
+#### For git
+```
+git config --global --unset http.proxy
+git config --global http.proxy http://172.16.2.11:3128
+git config --global --get http.proxy
+```
+
 ### For yarn
 ```
 yarn config set proxy http://172.16.2.11:3128/
